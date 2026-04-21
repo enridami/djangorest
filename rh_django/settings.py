@@ -85,9 +85,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'recursos_humanos_db',
         'USER': 'enridev',
-        'PASSWORD': 'contraseña',
+        'PASSWORD': 'tu_password',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '3306',
     }
 }
 
