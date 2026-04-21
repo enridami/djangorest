@@ -110,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
@@ -136,3 +135,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",  # Angular
     "http://localhost:5173",  # React
 ]
+
+# NO forzar slash al final (rutas sin '/' al final)
+APPEND_SLASH = False
