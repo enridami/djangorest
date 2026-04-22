@@ -9,3 +9,8 @@ __pycache__/
 # Entornos virtuales
 .venv/
 env/
+
+# Node.js
+node_modules/
+.env
+db.sqlite3
