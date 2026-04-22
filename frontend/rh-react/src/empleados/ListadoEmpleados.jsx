@@ -18,6 +18,25 @@ function ListadoEmpleados() {
     setEmpleados(resultado.data);
   };
 
+  const eliminarEmpleado = async (idEmpleado) => {
+
+    const confirmacion = window.confirm("¿Seguro que deseas eliminar este empleado?");
+
+    if (!confirmacion) return;
+
+    try {
+
+      await axios.delete(`${urlBase}/${idEmpleado}/`);
+
+      // recargar lista sin refrescar página
+      cargarEmpleados();
+
+    } catch (e) {
+      console.error(e);
+      alert("No se pudo eliminar el empleado");
+    }
+  };
+
   return (
     <div className="container">
 
@@ -63,7 +82,9 @@ function ListadoEmpleados() {
                   Editar
                 </button>
 
-                <button className="btn btn-danger btn-sm">
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => eliminarEmpleado(empleado.idEmpleado)}>
                   Eliminar
                 </button>
 

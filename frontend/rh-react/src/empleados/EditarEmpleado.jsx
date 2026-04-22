@@ -23,17 +23,18 @@ export default function EditarEmpleado() {
 
   const cargarEmpleado = async () => {
     try {
-      const resultado = await axios.get(`${urlBase}${idEmpleado}/`)
+      const resultado = await axios.get(`${urlBase}/${idEmpleado}/`)
       const data = resultado.data
 
       setNombre(data.nombre)
       setDepartamento(data.departamento)
       setSueldo(Number(data.sueldo))
 
-    } catch (e) {
-      setError('No se pudo cargar el empleado.')
+    } catch (e) {   
+        console.error(e)
+        setError('No se pudo cargar el empleado.')
     } finally {
-      setCargando(false)
+        setCargando(false)
     }
   }
 
@@ -58,7 +59,7 @@ export default function EditarEmpleado() {
     try {
       setEnviando(true)
 
-      await axios.put(`${urlBase}${idEmpleado}/`, {
+      await axios.put(`${urlBase}/${idEmpleado}/`, {
         nombre: nombreOk,
         departamento: deptoOk,
         sueldo: sueldoOk
