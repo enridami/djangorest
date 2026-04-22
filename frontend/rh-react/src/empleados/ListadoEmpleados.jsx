@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { NumericFormat } from "react-number-format";
+import { useNavigate } from "react-router-dom";
 import { urlBase } from "../config";
 
 function ListadoEmpleados() {
 
   const [empleados, setEmpleados] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     cargarEmpleados();
@@ -39,13 +41,10 @@ function ListadoEmpleados() {
             <tr key={empleado.idEmpleado}>
 
               <td>{empleado.idEmpleado}</td>
-
               <td>{empleado.nombre}</td>
-
               <td>{empleado.departamento}</td>
 
               <td>
-
                 <NumericFormat
                   value={empleado.sueldo}
                   displayType="text"
@@ -54,12 +53,13 @@ function ListadoEmpleados() {
                   fixedDecimalScale
                   prefix="$ "
                 />
-
               </td>
 
               <td>
 
-                <button className="btn btn-warning btn-sm me-2">
+                <button
+                  className="btn btn-warning btn-sm me-2"
+                  onClick={() => navigate(`/editar/${empleado.idEmpleado}`)}>
                   Editar
                 </button>
 
