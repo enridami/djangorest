@@ -1,19 +1,30 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Navegacion from "./plantillas/Navegacion";
 import ListadoEmpleados from "./empleados/ListadoEmpleados";
+import AgregarEmpleado from "./empleados/AgregarEmpleado";
 
 function App() {
 
   return (
-    <div className="container mt-4">
+    <Router>
 
-      <h2>Sistema de Recursos Humanos</h2>
+      <Navegacion />
 
-      <hr />
+      <div className="container mt-4">
 
-      <ListadoEmpleados />
+        <Routes>
 
-    </div>
+          <Route path="/" element={<ListadoEmpleados />} />
+
+          <Route path="/agregar" element={<AgregarEmpleado />} />
+
+        </Routes>
+
+      </div>
+
+    </Router>
   );
-
 }
 
 export default App;
